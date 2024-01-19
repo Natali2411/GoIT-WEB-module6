@@ -5,4 +5,5 @@ SELECT ROUND(AVG(g.value), 2) as avg_grade, sg.student_id, s.first_name, s.last_
 	JOIN public.students_grades sg ON sg.grade_id = g.id
 	JOIN public.students s ON s.id = sg.student_id
 	GROUP BY sg.student_id, s.first_name, s.last_name
-	ORDER BY avg_grade desc;
+	ORDER BY avg_grade desc
+    LIMIT 5;

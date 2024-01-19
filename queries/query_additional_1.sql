@@ -7,6 +7,7 @@ SELECT ROUND(AVG(g.value), 2) as avg_grade, sg.student_id,
 	JOIN public.students_grades sg ON sg.grade_id = g.id
 	JOIN public.students s ON s.id = sg.student_id
 	JOIN public.subjects sub ON sub.id = sg.subject_id
-    JOIN public.teachers t ON t.id = sg.subject_id
+	JOIN public.teachers_subjects tss ON sub.id = tss.subject_id
+    JOIN public.teachers t ON t.id = tss.teacher_id
 	WHERE t.id = 1 AND s.id = 1
 	GROUP BY sg.student_id, s.first_name, s.last_name, t.id;

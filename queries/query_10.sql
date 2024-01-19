@@ -7,7 +7,7 @@ FROM (
         JOIN public.teachers_subjects ts on t.id = ts.teacher_id
         JOIN public.subjects s on ts.subject_id = s.id
         JOIN public.students_grades sg ON sg.subject_id = s.id
-        JOIN public.students s2 on s2.id = sg.subject_id
+        JOIN public.students s2 on s2.id = sg.student_id
         WHERE t.id = 1 AND s2.id = 1
         GROUP BY s.name, t.first_name, t.last_name, s2.first_name, s2.last_name
 ) tt
